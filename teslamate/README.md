@@ -22,6 +22,15 @@ This must be done manually for now. You must use a bash terminal and have ```cur
 
 - Use the Grafana addon from the community repository.
 
+- Add the following plugins to the Grafana addon configuration:
+
+```yaml
+plugins:
+  - pr0ps-trackmap-panel
+  - natel-discrete-panel
+  - grafana-piechart-panel
+```
+
 - Expose the Grafana UI on an external port and restart it
 
 - Making  note of the admin username and password (see the addon container logs), clone the [teslamate repo](https://github.com/adriankumpf/teslamate)
@@ -30,22 +39,13 @@ This must be done manually for now. You must use a bash terminal and have ```cur
 git clone https://github.com/adriankumpf/teslamate.git
 ```
 
-- Open a terminal and navigate to the ./grafana directory
-
-- Edit the ```dashboards.sh``` file and change the URL, LOGIN and DASHBOARDS_DIRECTORY to reflect your installation.
-
-e.g.
+- Run the dashboards script to create the necessary dashboards:
 
 ```bash
-readonly URL=${URL:-"http://my-homeassistant-host:3000"}
-readonly LOGIN=${LOGIN:-"admin:mysecretpassword"}
-readonly DASHBOARDS_DIRECTORY=${DASHBOARDS_DIRECTORY:-"./dashboards"}
-```
-
-- Run the dashboards script
-
-```bash
-./dashboards.sh
+URL="http://my-homeassistant-host:3000" \
+LOGIN="admin:mysecretpassword" \
+DASHBOARDS_DIRECTORY="./dashboards" \
+./dashboards.sh restore
 ```
 
 - Finally remove the port mapping from Grafana and restart the addon
