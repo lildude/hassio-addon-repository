@@ -18,7 +18,7 @@ I recommend you only do this to configure TeslaMate and you then remove the exte
 
 *I recommend you use the existing Grafana addon from the community addons*
 
-This must be done manually for now. You must use a bash terminal and have ```curl``` available.
+This must be done manually for now. You must use a bash terminal and have `curl` available.
 
 - Use the Grafana addon from the community repository.
 
@@ -31,34 +31,7 @@ plugins:
   - grafana-piechart-panel
 ```
 
----
-
-## ⚠️ Old Broken Instructions
-
-These instructions don't work because Grafana won't accept incoming connects - it either redirects to the HTML page or returns a 401 Access denied error. See later for my workaround.
-
-- Expose the Grafana UI on an external port and restart it
-
-- Making  note of the admin username and password (see the addon container logs), clone the [teslamate repo](https://github.com/adriankumpf/teslamate)
-
-```bash
-git clone https://github.com/adriankumpf/teslamate.git
-```
-
-- Run the dashboards script to create the necessary dashboards:
-
-```bash
-URL="http://my-homeassistant-host:3000" \
-LOGIN="admin:mysecretpassword" \
-DASHBOARDS_DIRECTORY="./dashboards" \
-./dashboards.sh restore
-```
-
-- Finally remove the port mapping from Grafana and restart the addon
-
----
-
-## New Fudge Instructions
+## New Fudged Dashboard Inatallation Instructions
 
 - Enable root access to your Home Assistant host
 - Connect over SSH and run `login` to get a prompt
@@ -87,3 +60,30 @@ $ URL="http://localhost:3000" \
 ```
 
 - Remove the git repo: `rm -rf /tmp/teslamate`
+
+---
+
+## ⚠️ Old Broken Instructions
+
+These instructions don't work because Grafana won't accept incoming connects - it either redirects to the HTML page or returns a 401 Access denied error. See later for my workaround.
+
+- Expose the Grafana UI on an external port and restart it
+
+- Making  note of the admin username and password (see the addon container logs), clone the [teslamate repo](https://github.com/adriankumpf/teslamate)
+
+```bash
+git clone https://github.com/adriankumpf/teslamate.git
+```
+
+- Run the dashboards script to create the necessary dashboards:
+
+```bash
+URL="http://my-homeassistant-host:3000" \
+LOGIN="admin:mysecretpassword" \
+DASHBOARDS_DIRECTORY="./dashboards" \
+./dashboards.sh restore
+```
+
+- Finally remove the port mapping from Grafana and restart the addon
+
+---

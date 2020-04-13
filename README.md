@@ -26,5 +26,6 @@ Use the following URL: ```https://github.com/matt-FFFFFF/hassio-addon-repository
   docker run --rm --privileged -v /path_to/teslamate:/data homeassistant/amd64-builder --all -t /data -v dev --docker-user <me> --docker-password <its_a_secret_>
   ```
   Why? Because the matt-FFFFFF armv7 image contains binaries built on amd64 so running teslamate fails with the error `bin/erlexec ELF: not found` error when run on a Raspberry Pi.
-  **Update:** This breaks for me too 😭 so I've removed the image line so the image is built from scratch at the mo.
+  **Update:** This breaks for me too 😭.
+- **Update 2:** I've now pushed the armv7 image built on my Raspberry Pi under HomeAssistant and put back the image line.
 - A few other tweaks to point to this repo or my Docker Hub repo.
