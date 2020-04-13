@@ -47,5 +47,5 @@
         "timezone": "str",
         "port": "int"
     },
-    "url": "https://github.com/lildude/hassio-addon-repository/blob/master/teslamate/README.md",
+    "url": "https://github.com/lildude/hassio-addon-repository/blob/master/teslamate/README.md"
   }
