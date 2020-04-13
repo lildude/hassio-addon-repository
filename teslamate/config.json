@@ -48,5 +48,4 @@
         "port": "int"
     },
     "url": "https://github.com/lildude/hassio-addon-repository/blob/master/teslamate/README.md",
-    "image": "lildude/teslamate-{arch}"
   }
