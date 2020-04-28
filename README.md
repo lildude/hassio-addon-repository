@@ -3,7 +3,7 @@
 Some of my addons for Home Assistant.
 
 * [Postgres](postgres)
-* [TeslaMate](teslamate) - **Armv7 ONLY**
+* [TeslaMate](teslamate)
 
 ## CI/CD
 
